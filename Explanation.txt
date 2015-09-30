@@ -1,0 +1,23 @@
+To Katie and Codazen team, 
+
+My name is Ace Haidrey. I'm a 4th year at Cal studying Electrical Engineering and Computer Science. I appreciate you all giving me the opportunity to show my worth with this coding challenge. I had a lot of fun doing it, and thanks for making it moderate so it was the perfect amount of time consumption from my busy week (midterms approaching D:). Now let me talk about my solution. 
+
+I probably spent a total of 2-3 hours on this, and a lot of time went into the design decision. I could have just used SQL and created a database of students and made JOIN or IN with COUNT* calls to get the correct output, but I assumed that wasn't the approach you were looking for. 
+
+I then was conflicted on if I wanted to sort the two arrays and then run pointers through each, advancing the pointers as appropriate. If we let M represent the number of elements in array A, and N represent the number of elements in array B, then the total runtime for sorting using a mergesort implementation would be NlogN + MlogM. Then we'd need to find the number of matches, and that would be a runtime of O(M + N) since we'd need to go through each element in each array once. This was ultimately the route I took though I want to talk about one more design decision I almost went with.
+
+The last way I considered implementing was based on the idea of a BST. I wouldn't have to sort with this algorithm but I'd have to make one array into a BST. The array that would be made into a BST would be the larger of the two. The time it takes to create a BST would be max(NlogN, MlogM) and then to find the number of matches, we'd have to go through the smaller array and check if the BST of the larger array contains each element. This runtime would be min(MlogN, NlogM). If the two array sizes are very disproportionate in size, i.e. array A >>> array B, then it would most likely be better to use this tree implementation. 
+
+I created a Students class giving it the necessary fields, getter methods, constructor, and print statements. I chose to automatically put the name in all caps to protect against the case of student ace haidrey 13 vs. Ace haidrey 13 vs. aCe haidrey 13, etc. I created a Main class that has all the meat in it so to speak. I implement a mergeSort algorithm, as well as a numMatches method that does essentially what this program asked for. I then do my testing in the main method. I wrote out a couple of varying cases to check that it was working properly, and then even tested edge cases such as an initialized array with no items in it, or a null passed in for an array. I added code to protect against null cases. 
+
+Instructions to run: 
+1. In terminal, cd codazen
+2. javac -d . Student.java
+3. javac -d . Main.java
+4. java Main
+5. Print statement showing actual and expected values. They should be matching.
+
+All in all, I don't think my solution is perfect, but it works, it's neat, it's well commented, and it's optimized (as far as I know). 
+
+Cheers,
+	Ace Haidrey
